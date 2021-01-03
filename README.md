@@ -23,7 +23,7 @@ Next will automatically recognize the presence of typescipt in the project and w
 
 * `pages` - You’ll need to have a “pages/” directory, which behaves as a sort of one-to-one static router for your site.
 
-* `_app.js` - this file is used to initialize pages. You can override it and control the page initialization. Which allows you to do the following: 
+* [`_app.js`](https://nextjs.org/docs/advanced-features/custom-app) - this file is used to initialize pages. You can override it and control the page initialization. Which allows you to do the following: 
   - Persisting layout between page changes
   - Keeping state when navigating pages
   - Custom error handling using
