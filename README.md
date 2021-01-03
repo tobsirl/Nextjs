@@ -1,5 +1,10 @@
-# Nextjs
-Next.js Projects
+# Nextjs [Link](https://nextjs.org/)
+
+## Setup
+Create a Next project using npx
+```bash
+npx create-next-app <project name>
+```
 
 ---
 ## Resources
