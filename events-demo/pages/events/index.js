@@ -5,9 +5,11 @@ import EventsSearch from '../../components/events/EventsSearch';
 export default function AllEventsPage() {
   const events = getAllEvents();
 
+  function findEventsHandler(year, month) {}
+
   return (
     <>
-      <EventsSearch />
+      <EventsSearch onSearch={findEventsHandler} />
       <EventList events={events} />
     </>
   );
