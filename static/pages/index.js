@@ -2,8 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export default function HomePage(props) {
-  const { products } = props
-  console.log(props);
+  const { products } = props;
 
   return (
     <ul>
@@ -19,12 +18,10 @@ export async function getStaticProps() {
   const response = await fs.readFile(filePath);
   const data = await JSON.parse(response);
 
-  console.log(data);
-
   return {
     props: {
-      products: [{ id: 'p1', title: 'Product 1' }],
-      productsTest: data.productsTest,
+      products: data.products,
     },
+    revalidate: 120,
   };
 }
