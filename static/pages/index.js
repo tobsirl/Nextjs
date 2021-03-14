@@ -3,6 +3,7 @@ import path from 'path';
 
 export default function HomePage(props) {
   const { products } = props;
+  console.log(products);
 
   return (
     <ul>
@@ -13,7 +14,7 @@ export default function HomePage(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   const filePath = path.join(process.cwd(), 'static', '../dummy-backend.json');
   const response = await fs.readFile(filePath);
   const data = await JSON.parse(response);
