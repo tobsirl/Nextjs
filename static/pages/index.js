@@ -17,7 +17,7 @@ export default function HomePage(props) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const filePath = path.join(process.cwd(), 'static', '../dummy-backend.json');
   const response = await fs.readFile(filePath);
   const data = await JSON.parse(response);

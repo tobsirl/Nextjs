@@ -2,11 +2,11 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export default function ProductDetailPage(props) {
-  console.log(props);
+  const { title, description } = props.product;
   return (
     <>
-      <h1>TITLE</h1>
-      <p>Description</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </>
   );
 }
@@ -26,5 +26,16 @@ export async function getStaticProps(context) {
     props: {
       product,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { productId: 'p1' } },
+      { params: { productId: 'p2' } },
+      { params: { productId: 'p3' } },
+    ],
+    fallback: false,
   };
 }
