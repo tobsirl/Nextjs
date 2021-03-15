@@ -7,7 +7,7 @@ export default function ProductDetailPage(props) {
   if(!title) {
     return <p>Loading...</p>
   }
-  
+
   return (
     <>
       <h1>{title}</h1>
@@ -41,6 +41,6 @@ export async function getStaticPaths() {
       { params: { productId: 'p2' } },
       { params: { productId: 'p3' } },
     ],
-    fallback: true,
+    fallback: 'blocking',
   };
 }
