@@ -2,16 +2,16 @@ import fs from 'fs/promises';
 import path from 'path';
 
 export default function ProductDetailPage(props) {
-  const { title, description } = props.product;
+  const { product } = props;
 
-  if (!title) {
+  if (!product) {
     return <p>Loading...</p>;
   }
 
   return (
     <>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h1>{product.title}</h1>
+      <p>{product.description}</p>
     </>
   );
 }
@@ -33,6 +33,10 @@ export async function getStaticProps(context) {
 
   const product = data.products.find((product) => product.id === productId);
 
+  if (!product) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       product,
@@ -49,6 +53,6 @@ export async function getStaticPaths() {
 
   return {
     paths: pathWithParams,
-    fallback: false,
+    fallback: true,
   };
 }
